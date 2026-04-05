@@ -24,7 +24,7 @@ This project demonstrates the end-to-end deployment of a professional phishing s
 ### 1. Cloud Infrastructure Provisioning
 * **Instance Scaling:** Initially deployed on `t3.micro`. Due to resource contention with the Poste.io Antivirus/Spam engines, the environment was migrated to a **c7i-flex.large** (2 vCPU, 4GB RAM) for stability.
 * **Elastic IP:** Assigned a static IPv4 to ensure DNS record consistency.
-* **Security Groups:** Configured granular Inbound/Outbound rules to allow:
+* **Security Groups:** Configured granular inbound/outbound rules to allow:
     * `SSH (22)` - Management
     * `HTTP/S (80, 443)` - Landing Pages & Admin UI
     * `SMTP Submission (587)` & `SMTPS (465)` - Mail Delivery
@@ -66,24 +66,6 @@ To ensure high deliverability and simulate real-world attacker sophistication, t
 
 ---
 
-## 📊 Results & Artifacts
-> **[Optional: Insert Screenshot of Gophish Dashboard here]**
-> *Caption: Real-time tracking showing successful Email Sent, Opened, and Clicked events.*
-
-> **[Optional: Insert Screenshot of Mail Headers here]**
-> *Caption: Proving `PASS` status for SPF and DKIM signatures.*
-
-> **[Optional: Insert Screenshot of Poste.io Diagnostics here]**
-> *Caption: Demonstrates DNS and mail service validation after infrastructure troubleshooting.*
-
-> **[Optional: Insert Screenshot of Porkbun DNS Records here]**
-> *Caption: Shows A, MX, SPF, DKIM, and DMARC configuration for the mail domain.*
-
-> **[Optional: Insert Screenshot of intodns Report here]**
-> *Caption: Displays external DNS validation results and highlights common mail setup warnings.*
-
----
-
 ## 🧠 Lessons Learned
 1. **Infrastructure as Code (Thinking):** The importance of selecting the right compute class for containerized security tools.
 2. **Mail Integrity:** How modern mail filters use SPF/DKIM to build trust, and how attackers leverage these same tools.
@@ -95,28 +77,6 @@ To ensure high deliverability and simulate real-world attacker sophistication, t
 8. **Linux Service Validation:** Confirming a service on `127.0.0.1` first is a reliable way to isolate host vs. network issues.
 9. **Telnet Workflow:** `Ctrl + ]` followed by `quit` is useful for exiting stuck telnet sessions.
 10. **Port Planning:** Running multiple network services on one instance requires careful mapping of host ports and Docker container ports.
-
----
-
-## 👨‍💻 How to Use
-1. Clone this repo.
-2. Deploy the AWS CloudFormation template (if applicable).
-3. Install Docker and run the provided `docker-compose.yml`.
-4. Configure your Gophish Sending Profile to point to your Elastic IP.
-5. Validate DNS records, SMTP submission, and webmail access before launching any campaign tests.
-
----
-
-## 📁 Suggested Repository Structure
-```text
-.
-├── README.md
-├── screenshots/
-├── docker/
-├── configs/
-├── notes/
-└── diagrams/
-```
 
 ---
 
@@ -137,12 +97,12 @@ To ensure high deliverability and simulate real-world attacker sophistication, t
 
 ---
 
+[View Screenshots](.docs/Enterprise_Phishing_Simulation_and_Defense_Lab_(AWS).pdf)
+
+---
+
 ## 📚 References
 - [GoPhish](https://getgophish.com/)
 - [Poste.io](https://poste.io/)
 - [AWS EC2 Documentation](https://docs.aws.amazon.com/ec2/)
 - [Porkbun DNS Documentation](https://kb.porkbun.com/)
-
----
-
-*Created by [Your Name] | Cybersecurity Analyst & Cloud Security Enthusiast*
